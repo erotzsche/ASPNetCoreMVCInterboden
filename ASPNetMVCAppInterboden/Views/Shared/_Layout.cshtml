@@ -1,0 +1,32 @@
+﻿<DOCTYPE html>
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>
+            @ViewData["Title"] - Interboden
+        </title>
+
+        <link rel="stylesheet" href="~/lib/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-dark bg-dark">
+                <a class="nav-link text-white" asp-controller="Wohnungen" asp-action="Index">Wohnungen</a>
+            </nav>
+        </header>
+        <div class="container">
+            <h1>@ViewData["Title"]</h1>
+            <br />
+            @RenderBody()
+        </div>
+
+        <footer></footer>
+
+        <script src="~/lib/js/jquery-3.4.0.min.js"></script>
+        <script src="~/lib/js/bootstrap.bundle.min.js"></script>
+        @RenderSection("Scripts", required: false)
+        <script src="~/js/site.js"></script>
+    </body>
+</html>

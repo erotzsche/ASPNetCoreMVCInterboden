@@ -1,0 +1,46 @@
+﻿@model ASPNetMVCAppInterboden.Model.Wohnung
+@{
+    Layout = null;
+}
+
+<form asp-action="ErstellenOderBearbeiten" asp-route-id="@Model.Id" onsubmit="return saveForm(this)">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Beschreibung" class="control-label">@Html.DisplayNameFor(model => model.Beschreibung)</label>
+        <input asp-for="Beschreibung" class="form-control" />
+        <span asp-validation-for="Beschreibung" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Strasse" class="control-label">@Html.DisplayNameFor(model => model.Strasse)</label>
+        <input asp-for="Strasse" class="form-control" />
+        <span asp-validation-for="Strasse" class="text-danger"></span>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Postleitzahl" class="control-label">@Html.DisplayNameFor(model => model.Postleitzahl)</label>
+                <input asp-for="Postleitzahl" class="form-control" />
+                <span asp-validation-for="Postleitzahl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <label asp-for="Ort" class="control-label">@Html.DisplayNameFor(model => model.Ort)</label>
+                <input asp-for="Ort" class="form-control" />
+                <span asp-validation-for="Ort" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" asp-for="IstInaktiv" />
+        <label class="form-check-label">
+            @Html.DisplayNameFor(model => model.IstInaktiv)
+        </label>
+    </div>
+    <input type="submit" value="Speichern" class="btn btn-primary btn-block" />
+    <button type="button" class="btn btn-outline-primary btn-block" data-dismiss="modal">Schließen</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

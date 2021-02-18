@@ -1,0 +1,16 @@
+﻿@model ASPNetMVCAppInterboden.Model.Wohnung
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="col-sm-6">
+    @if (Model != null)
+    {
+        <div class="card ">
+            <div class="card-header">Neueste Wohnung</div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.Beschreibung</h5>
+            </div>
+        </div>
+    }
+
+</div>

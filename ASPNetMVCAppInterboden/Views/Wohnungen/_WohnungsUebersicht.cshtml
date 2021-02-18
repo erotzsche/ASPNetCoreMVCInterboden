@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ASPNetMVCAppInterboden.Model.Wohnung>
+@{ 
+    var neuesteWohnung = Model.LastOrDefault();
+}
+
+@if(neuesteWohnung != null)
+{
+    await Html.RenderPartialAsync("_NeuesteWohnung", neuesteWohnung);
+}
+<br />
+<div class="col-sm-12">
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+            </tr>
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Beschreibung)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Strasse)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Postleitzahl)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ort)
+                    </th>
+                    <th>
+                        <button type="button" onclick="openPopup('@Url.Action("ErstellenOderBearbeiten", "Wohnungen", null)', 'Neue Wohnung')" class="btn btn-success btn-block">
+                            <i class="fas fa-plus"></i>  Neue Wohnung
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var wohnung in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => wohnung.Beschreibung)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => wohnung.Strasse)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => wohnung.Postleitzahl)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => wohnung.Ort)
+                        </td>
+                        <td>
+                            <button type="button" onclick="openPopup('@Url.Action("ErstellenOderBearbeiten", "Wohnungen", new { id = wohnung.Id })', 'Wohnung bearbeiten')" class="btn btn-outline-primary btn-block">
+                                <i class="far fa-edit"></i> Bearbeiten
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="table-secondary text-right">Aktive Wohnungen: @Model.Count()</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

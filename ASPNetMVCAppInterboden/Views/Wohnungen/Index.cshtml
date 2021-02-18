@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ASPNetMVCAppInterboden.Model.Wohnung>
+
+@{
+    ViewData["Title"] = "Wohnungsübersicht";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div id="content" class="col-sm-12">
+        @await Html.PartialAsync("_WohnungsUebersicht", Model)
+    </div>
+
+    <div class="modal fade" id="popup">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
