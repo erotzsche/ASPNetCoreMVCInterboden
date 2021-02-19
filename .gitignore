@@ -1,5 +1,3 @@
-bin\
-obj\
-/ASPNetMVCAppInterboden/bin/Debug/netcoreapp2.2
-/ASPNetMVCAppInterboden/obj/Debug/netcoreapp2.2
-/ASPNetMVCAppInterboden/obj
+bin/
+obj/
+.vs/

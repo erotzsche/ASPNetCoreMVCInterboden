@@ -28,7 +28,7 @@
                         @Html.DisplayNameFor(model => model.Ort)
                     </th>
                     <th>
-                        <button type="button" onclick="openPopup('@Url.Action("ErstellenOderBearbeiten", "Wohnungen", null)', 'Neue Wohnung')" class="btn btn-success btn-block">
+                        <button type="button" onclick="openPopup('@Url.Action("ErstellenOderBearbeiten", "Wohnungen", new { id = 0 })', 'Neue Wohnung')" class="btn btn-success btn-block">
                             <i class="fas fa-plus"></i>  Neue Wohnung
                         </button>
                     </th>
