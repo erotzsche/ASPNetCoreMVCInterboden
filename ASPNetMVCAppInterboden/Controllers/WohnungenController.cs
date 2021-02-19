@@ -72,7 +72,7 @@ namespace ASPNetMVCAppInterboden.Controllers
                         }
                     }
                 }
-
+                // Um im JQuery Script zu unterscheiden, ob die Anfrage gültig ist, Json-Objekt erstellen, mit Gültigkeit und View als Html-String
                 return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_WohnungsUebersicht", context.Wohnungen.Where(w => w.IstInaktiv == false)) });
             }
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "ErstellenOderBearbeiten", wohnung) });

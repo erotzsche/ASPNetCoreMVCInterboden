@@ -12,6 +12,9 @@ namespace ASPNetMVCAppInterboden
 {
     public class Helper
     {
+        /***
+         * Wandelt eine gerenderte View in einen String um, um in Json vereendet zu werden
+         */
         public static string RenderRazorViewToString(Controller controller, string viewName, object model = null)
         {
             controller.ViewData.Model = model;
@@ -20,6 +23,7 @@ namespace ASPNetMVCAppInterboden
                 IViewEngine viewEngine = controller.HttpContext.RequestServices.GetService(typeof(ICompositeViewEngine)) as ICompositeViewEngine;
                 ViewEngineResult viewResult = viewEngine.FindView(controller.ControllerContext, viewName, false);
 
+                // View mit Model verheiraten 
                 ViewContext viewContext = new ViewContext(
                     controller.ControllerContext,
                     viewResult.View,
@@ -28,7 +32,10 @@ namespace ASPNetMVCAppInterboden
                     sw,
                     new HtmlHelperOptions()
                 );
+
+                // View rendern
                 viewResult.View.RenderAsync(viewContext);
+                // View als String zurückgeben
                 return sw.GetStringBuilder().ToString();
             }
         }
